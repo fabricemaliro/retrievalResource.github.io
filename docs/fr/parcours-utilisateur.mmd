@@ -1,0 +1,17 @@
+flowchart TD
+    A([Un agent a besoin d'un dossier]) --> B[Connexion]
+    B --> C{Rôle}
+    C -->|Responsable / Agent / Personnel / Étudiant| D[Accueil de la recherche<br/>barre de recherche + parcours par type]
+    D --> E[Saisir la requête et Entrée<br/>nom, n° d'inscription, référence, mots-clés<br/>en français ou en anglais]
+    E --> F[[Le contrôle d'accès restreint l'index<br/>aux documents autorisés pour le rôle]]
+    F --> G[Résultats classés<br/>extraits, badges, facettes avec compteurs]
+    G --> H{Le document est-il<br/>en première page ?}
+    H -->|Oui| K[Détail du document<br/>métadonnées, texte surligné, documents liés]
+    H -->|Trop de résultats| I[Affiner : filtres type, département,<br/>année, accès - ou tri / champs avancés]
+    I --> G
+    G -->|0 résultat| J[Page sans résultat<br/>vouliez-vous dire, retirer les filtres,<br/>chercher par numéro, parcourir, contacter les archives]
+    J --> E
+    K --> L[Télécharger - enregistré dans le journal d'audit]
+    K --> M[Retour aux résultats, requête conservée]
+    M --> G
+    L --> N([Tâche terminée<br/>3 actions en général])

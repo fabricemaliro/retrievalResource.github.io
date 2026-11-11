@@ -1,0 +1,17 @@
+flowchart TD
+    A([Staff member needs a file]) --> B[Sign in]
+    B --> C{Role}
+    C -->|Manager / Officer / Dept staff / Student| D[Search home<br/>search box + browse by type]
+    D --> E[Type query and press Enter<br/>name, reg. no., reference no., keywords]
+    E --> F[[Access control trims the index<br/>to documents the role may see]]
+    F --> G[Ranked results<br/>snippets, badges, facets with counts]
+    G --> H{Is the document<br/>on the first page?}
+    H -->|Yes| K[Open document detail<br/>metadata, highlighted text, related docs]
+    H -->|Too many results| I[Refine: filters - type, department,<br/>year, access - or sort / advanced fields]
+    I --> G
+    G -->|0 results| J[No-results page<br/>did you mean, remove filters,<br/>search by number, browse, ask Records Office]
+    J --> E
+    K --> L[Download - logged in the audit trail]
+    K --> M[Back to results with query kept]
+    M --> G
+    L --> N([Task complete<br/>typically 3 actions])
